@@ -26,7 +26,9 @@ body {
     color: var(--text);
     display: flex;
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.7;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 /* =============================================
@@ -102,7 +104,7 @@ body {
     background: rgba(0,0,0,.5);
     z-index: 99;
 }
-.sidebar-overlay.show { display: block; }
+.sidebar-overlay.active { display: block; }
 
 /* Menu toggle (visible on mobile) */
 .menu-toggle {
@@ -182,51 +184,6 @@ body {
     font-weight: 600;
 }
 
-/* === Dashboard stats === */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-}
-.stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 12px;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-.stat-value {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--accent);
-}
-.stat-label {
-    font-size: .75rem;
-    color: var(--text-muted);
-    margin-top: 4px;
-}
-
-/* === Progress bar === */
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background: var(--bg-input);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 8px;
-}
-.progress-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width .5s ease;
-}
-.progress-fill.green { background: var(--green); }
-.progress-fill.accent { background: var(--accent); }
-.progress-fill.yellow { background: var(--yellow); }
-.progress-fill.red { background: var(--red); }
-
 /* === Category grid === */
 .category-grid {
     display: grid;
@@ -272,14 +229,6 @@ body {
     border-color: var(--accent);
     background: var(--bg-card-hover);
 }
-.problem-item .status-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-.problem-item .status-dot.not-started { background: var(--text-muted); }
-.problem-item .status-dot.attempted { background: var(--yellow); }
-.problem-item .status-dot.solved { background: var(--green); }
 .problem-item .title { flex: 1; font-weight: 500; font-size: .9rem; }
 .difficulty-tag {
     font-size: .7rem;
@@ -333,9 +282,10 @@ body {
     padding: 14px 16px;
     border-radius: 8px;
     margin-bottom: 14px;
-    line-height: 1.75;
+    line-height: 1.8;
     white-space: pre-wrap;
     overflow-wrap: break-word;
+    font-size: .92rem;
 }
 .problem-detail .example {
     background: var(--bg-input);
@@ -430,28 +380,15 @@ body {
     background: var(--bg-input);
     padding: 12px 14px;
     border-radius: 8px;
+    line-height: 1.7;
 }
 .star-section label {
     display: block;
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 6px;
-    font-size: .85rem;
+    font-size: .88rem;
 }
-.star-section textarea {
-    width: 100%;
-    min-height: 70px;
-    background: var(--bg-card);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 10px;
-    font-size: .85rem;
-    font-family: inherit;
-    resize: vertical;
-    outline: none;
-}
-.star-section textarea:focus { border-color: var(--accent); }
 
 /* === Timer === */
 .timer-display {
@@ -540,20 +477,6 @@ body {
     border-radius: 6px;
     font-size: .88rem;
 }
-.answer-input {
-    width: 100%;
-    max-width: 200px;
-    padding: 10px 14px;
-    background: var(--bg-input);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: .9rem;
-    margin-right: 8px;
-    outline: none;
-    min-height: 44px;
-}
-.answer-input:focus { border-color: var(--accent); }
 .correct { color: var(--green); font-weight: 600; }
 .incorrect { color: var(--red); font-weight: 600; }
 
@@ -593,8 +516,8 @@ body {
     border-radius: 8px;
     padding: 12px 14px;
     margin-top: 10px;
-    font-size: .85rem;
-    line-height: 1.65;
+    font-size: .88rem;
+    line-height: 1.75;
 }
 .beginner-note::before {
     content: '\1F4A1 ';
@@ -604,22 +527,6 @@ body {
     color: var(--green);
     font-size: .78rem;
     margin-bottom: 4px;
-}
-
-/* === Beginner mode toggle === */
-.mode-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: .82rem;
-    color: var(--text-muted);
-    cursor: pointer;
-    padding: 8px 0;
-}
-.mode-toggle input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--accent);
 }
 
 /* === Scrollbar === */
@@ -642,8 +549,6 @@ body {
     html { font-size: 14.5px; }
     .content { padding: 20px 18px; padding-top: 60px; }
     .card { padding: 18px 20px; }
-    .stat-card { padding: 18px 16px; }
-    .stat-value { font-size: 1.8rem; }
     .complexity-info { flex-direction: row; gap: 16px; }
     .timeline { flex-direction: row; flex-wrap: wrap; }
     .timeline-step {
@@ -681,12 +586,9 @@ body {
         padding: 32px 36px;
     }
 
-    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
     .category-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 
     .card { padding: 20px 24px; }
-    .stat-card { padding: 20px; }
-    .stat-value { font-size: 2rem; }
 
     .problem-item { padding: 14px 18px; }
     .problem-detail .description { padding: 18px 22px; }
@@ -696,7 +598,6 @@ body {
     .filter-bar select, .filter-bar input { flex: none; width: auto; }
 
     .star-section { padding: 14px 18px; }
-    .star-section textarea { min-height: 80px; }
 
     .timer-display { padding: 40px 0; }
 
@@ -710,7 +611,6 @@ body {
 @media (min-width: 1024px) {
     .content { max-width: 1100px; }
     .category-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 }
 
 /* Flow Diagram */
