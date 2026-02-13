@@ -845,7 +845,7 @@ const referenceSources = [
     ]},
     { category: 'Career Resources', categoryJa: 'キャリアリソース',
       links: [
-        { title: 'Wall Street Oasis: Operations Interview', url: 'https://www.wallstreetoasis.com/resources/interviews/operations-interview-questions', desc: 'Community-contributed operations interview questions and answers.', descJa: 'コミュニティ投稿のオペレーション面接質問と回答。' },
+        { title: 'Wall Street Oasis: Interview Guides', url: 'https://www.wallstreetoasis.com/resources/interviews', desc: 'Community-contributed interview questions and guides across finance roles.', descJa: '金融の各職種の面接質問とガイド（コミュニティ投稿）。' },
         { title: 'Investopedia: Financial Terms Dictionary', url: 'https://www.investopedia.com/financial-term-dictionary-4769738', desc: 'Comprehensive glossary of financial terms.', descJa: '金融用語の包括的な辞書。' },
         { title: 'M&I: Front/Middle/Back Office Guide', url: 'https://mergersandinquisitions.com/front-office-middle-office-back-office/', desc: 'Guide to front, middle, and back office roles in finance.', descJa: '金融のフロント・ミドル・バックオフィスの役割ガイド。' },
     ]},
