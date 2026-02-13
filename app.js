@@ -807,26 +807,38 @@ function renderGlossary(){
 
 // --- Industry Topics (shown on dashboard) ---
 const industryTopics = [
-    {topic:'T+1 Settlement (US)', topicJa:'T+1決済（米国）',
-     desc:'US equities moved from T+2 to T+1 in May 2024. Processing time halved, making automation critical.',
-     descJa:'2024年5月に米国株式がT+2からT+1に移行。オペレーションの処理時間が半減し、自動化の重要性が増大。',
-     url:'https://www.sec.gov/oiea/investor-alerts-and-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor'},
-    {topic:'AI & Automation in Operations', topicJa:'AI・自動化とオペレーション',
-     desc:'RPA, AI-powered reconciliation, anomaly detection, NLP for confirmation matching are transforming Operations.',
-     descJa:'RPAやAIによる照合自動化、異常検知、自然言語処理によるコンファメーション読み取りなどが進展。',
-     url:'https://www.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-predictions.html'},
-    {topic:'Operational Resilience', topicJa:'オペレーショナルレジリエンス',
-     desc:'Post-COVID, business continuity and cybersecurity became top priorities. Regulators now require detailed resilience plans.',
-     descJa:'コロナ禍以降、業務継続性（BCP）とサイバーセキュリティへの注目が高まった。規制当局も金融機関にレジリエンス計画を義務化。',
-     url:'https://www.bis.org/bcbs/publ/d516.htm'},
-    {topic:'ESG & Sustainable Finance', topicJa:'ESG・サステナブルファイナンス',
-     desc:'Environmentally and socially responsible investing is growing. Ops handles green bond processing and ESG data management.',
-     descJa:'環境・社会・ガバナンスに配慮した投資が拡大。Opsはグリーンボンドの発行処理やESGデータ管理で関わる。',
-     url:'https://www.investopedia.com/terms/e/environmental-social-and-governance-esg-criteria.asp'},
-    {topic:'Digital Assets & DLT', topicJa:'デジタルアセットと分散台帳',
-     desc:'Crypto assets and tokenized securities are emerging. Blockchain-based settlement (T+0) is being explored.',
-     descJa:'暗号資産やトークン化証券など新しい資産クラスが登場。ブロックチェーンを使った即時決済（T+0）が議論されている。',
-     url:'https://www.dtcc.com/digital-assets'},
+    {topic:'T+1 Settlement: One Year Later', topicJa:'T+1決済：移行から1年',
+     desc:'US equities moved to T+1 in May 2024. Same-day allocation and affirmation are now required, compressing Ops deadlines dramatically.',
+     descJa:'2024年5月に米国株式がT+1に移行。即日アロケーション・アファメーションが必須となり、Ops処理の時間的余裕が大幅に減少。',
+     url:'https://www.dtcc.com/ust1'},
+    {topic:'EU Plans T+1 by October 2027', topicJa:'EU、2027年10月にT+1移行へ',
+     desc:'ESMA recommended the EU move to T+1 by October 2027. Until then, US T+1 vs EU T+2 mismatch creates cross-border FX funding challenges.',
+     descJa:'ESMAは2027年10月までにEUもT+1に移行することを勧告。それまで米国T+1とEU T+2の不一致がクロスボーダー取引のFX決済に課題を生む。',
+     url:'https://www.esma.europa.eu/press-news/esma-news/esma-recommends-eu-moves-t1-settlement-11-october-2027'},
+    {topic:'GS Record 2024: ~$53.5B Revenue', topicJa:'GS 2024年過去最高収益：約535億ドル',
+     desc:'Goldman Sachs reported record net revenues for 2024 with strong FICC and Equities performance. Higher volumes mean more settlements, margin calls, and reconciliations for Ops.',
+     descJa:'ゴールドマン・サックスは2024年に過去最高の純収益を記録。FICCと株式が好調。取引量増加に伴い、Opsの決済・マージンコール・照合業務も増大。',
+     url:'https://www.goldmansachs.com/pressroom/press-releases/2025/pdfs/2024-q4-results.pdf'},
+    {topic:'AI Transforming Post-Trade Ops', topicJa:'AIがポストトレード業務を変革',
+     desc:'GenAI is moving from experimentation to production: automated break resolution, NLP for confirmation matching, anomaly detection in reconciliations.',
+     descJa:'生成AIが実験段階から本番運用へ：トレードブレークの自動解決、NLPによるコンファメーション照合、リコンサイル異常検知。',
+     url:'https://www.goldmansachs.com/intelligence/pages/gs-research/gen-ai-era-of-transformation/report.pdf'},
+    {topic:'Citi Fined $136M for Data Failures', topicJa:'Citi、データ管理不備で1.36億ドルの罰金',
+     desc:'The Fed fined Citigroup $136M in 2024 for insufficient data quality and operational controls, following the infamous $900M Revlon erroneous payment.',
+     descJa:'FRBは2024年にCitiに1.36億ドルの罰金を科した。データ品質と業務管理の不備が原因。有名な9億ドルのRevlon誤送金事件が発端。',
+     url:'https://www.federalreserve.gov/newsevents/pressreleases/enforcement20240710a.htm'},
+    {topic:'US Treasury Clearing Mandate', topicJa:'米国債の中央清算義務化',
+     desc:'SEC mandated central clearing for a broader range of US Treasury transactions, effective 2025-2026. A major operational buildout for every dealer bank.',
+     descJa:'SECが米国債取引の中央清算範囲を拡大（2025-2026年施行）。すべてのディーラー銀行にとって大規模なOpsインフラ構築が必要。',
+     url:'https://www.dtcc.com/clearing-services/ficc-gov'},
+    {topic:'JPM Kinexys: $2B/day on Blockchain', topicJa:'JPM Kinexys：ブロックチェーンで1日20億ドル',
+     desc:'JPMorgan\'s Kinexys (formerly Onyx) processes ~$2B daily on blockchain. 24/7 programmable payments and tokenized collateral are now production-ready.',
+     descJa:'JPモルガンのKinexys（旧Onyx）はブロックチェーン上で1日約20億ドルを処理。24時間プログラマブル決済とトークン化担保が実用段階に。',
+     url:'https://www.jpmorgan.com/kinexys'},
+    {topic:'Basel III Endgame: Capital Impact', topicJa:'バーゼルIIIエンドゲーム：資本への影響',
+     desc:'The re-proposed US Basel III rules would increase capital requirements ~9%. Banks are optimizing netting, collateral management, and central clearing in response.',
+     descJa:'米国バーゼルIII再提案では資本要件が約9%増加見込み。銀行はネッティング、担保管理、中央清算の効率化で対応中。',
+     url:'https://www.federalreserve.gov/supervisionreg/basel/USimplementation.htm'},
 ];
 
 // --- References ---
@@ -853,7 +865,26 @@ const referenceSources = [
       links: [
         { title: 'Investopedia: Asset Classes Guide', url: 'https://www.investopedia.com/terms/a/assetclasses.asp', desc: 'Overview of equities, fixed income, FX, and derivatives.', descJa: '株式、債券、FX、デリバティブの概要。' },
         { title: 'CME Group: Education', url: 'https://www.cmegroup.com/education', desc: 'Free courses on futures, options, and clearing.', descJa: '先物、オプション、清算に関する無料コース。' },
-        { title: 'Bank of Japan: Payment and Settlement', url: 'https://www.boj.or.jp/en/paym/outline/index.htm', desc: 'Overview of Japan\'s payment and settlement systems.', descJa: '日本の決済システムの概要。' },
+        { title: 'BlackRock 2025 Global Outlook', url: 'https://www.blackrock.com/us/individual/insights/blackrock-investment-institute/outlook', desc: 'Key macro themes: AI transformation, geopolitical risk, and market shifts.', descJa: '主要マクロテーマ：AI変革、地政学リスク、市場構造変化。' },
+        { title: 'BIS: Principles for Operational Resilience', url: 'https://www.bis.org/bcbs/publ/d516.htm', desc: 'Basel Committee guidance on operational resilience, BCP, and cybersecurity.', descJa: 'バーゼル委員会によるオペレーショナルレジリエンス、BCP、サイバーセキュリティに関するガイダンス。' },
+    ]},
+    { category: 'Goldman Sachs', categoryJa: 'ゴールドマン・サックス',
+      links: [
+        { title: 'GS Investor Relations', url: 'https://www.goldmansachs.com/investor-relations', desc: 'Earnings reports, SEC filings, and segment breakdowns (Global Banking & Markets, AWM).', descJa: '決算報告、SEC提出書類、事業セグメント情報（グローバルバンキング＆マーケッツ、AWM）。' },
+        { title: 'GS Pressroom', url: 'https://www.goldmansachs.com/pressroom', desc: 'Latest news: technology strategy, Transaction Banking (TxB), digital asset initiatives.', descJa: '最新ニュース：テクノロジー戦略、トランザクションバンキング（TxB）、デジタルアセット。' },
+        { title: 'GS: GenAI Could Raise GDP by 7%', url: 'https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent', desc: 'GS Research on AI\'s macro-economic impact. Useful context for discussing AI in finance interviews.', descJa: 'AIのマクロ経済的影響に関するGSリサーチ。面接でAIを語る際の背景知識として有用。' },
+        { title: 'GS Japan Careers', url: 'https://www.goldmansachs.com/japan/careers/', desc: 'Division descriptions and recruitment info for GS Japan.', descJa: 'GS日本の部門説明と採用情報。' },
+    ]},
+    { category: 'Japanese Resources', categoryJa: '日本語リソース',
+      links: [
+        { title: 'JPX (Japan Exchange Group)', titleJa: '日本取引所グループ (JPX)', url: 'https://www.jpx.co.jp/corporate/about-jpx/index.html', desc: 'JPX Group overview: TSE, OSE exchanges and JSCC clearing.', descJa: 'JPXグループの概要：TSE・OSE（取引所）とJSCC（清算機関）。' },
+        { title: 'JSCC (Japan Securities Clearing)', titleJa: '日本証券クリアリング機構 (JSCC)', url: 'https://www.jpx.co.jp/jscc/', desc: 'Japan\'s CCP for equities, JGBs, and derivatives.', descJa: '株式・国債・デリバティブの中央清算機関。' },
+        { title: 'JASDEC (Securities Depository)', titleJa: '証券保管振替機構 (JASDEC)', url: 'https://www.jasdec.com/', desc: 'Central securities depository handling DVP and book-entry transfers.', descJa: 'DVP決済と振替制度を担う証券保管振替機構。' },
+        { title: 'BOJ: Payment & Settlement Systems', titleJa: '日本銀行 決済制度の概要', url: 'https://www.boj.or.jp/paym/outline/index.htm', desc: 'BOJ-NET and Japan\'s RTGS settlement infrastructure.', descJa: 'BOJ-NETと日本の即時グロス決済（RTGS）インフラの概要。' },
+        { title: 'Nomura Securities Glossary', titleJa: '野村證券 証券用語解説集', url: 'https://www.nomura.co.jp/terms/', desc: 'Japan\'s most comprehensive securities glossary.', descJa: '日本で最も網羅的な証券用語集。約定・受渡・証拠金など。' },
+        { title: 'FSA Policy Index', titleJa: '金融庁 政策一覧', url: 'https://www.fsa.go.jp/policy/index.html', desc: 'Japan\'s financial regulatory framework: FIEA, Banking Act, etc.', descJa: '金商法・銀行法など日本の金融規制の全体像。' },
+        { title: 'Nikkei Markets', titleJa: '日経新聞 マーケット', url: 'https://www.nikkei.com/markets/', desc: 'Japan\'s leading financial news: equities, bonds, FX.', descJa: '日本を代表する経済紙のマーケット情報。' },
+        { title: 'Gaishishukatsu', titleJa: '外資就活ドットコム', url: 'https://gaishishukatsu.com/', desc: 'Interview reports and selection guides for foreign financial firms in Japan.', descJa: '外資金融の面接体験記・選考対策。GS・MS・JPM等の実際の質問を掲載。' },
     ]},
 ];
 
@@ -863,7 +894,8 @@ function renderReferences() {
     referenceSources.forEach(cat => {
         const card = h('div', {className:'card'}, h('h3', {className:'card-title', style:'margin-bottom:12px'}, L(cat, 'category')));
         cat.links.forEach(link => {
-            const a = h('a', {href:link.url, target:'_blank', rel:'noopener noreferrer', style:'color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem'}, link.title);
+            const linkTitle = L(link, 'title');
+            const a = h('a', {href:link.url, target:'_blank', rel:'noopener noreferrer', style:'color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem'}, linkTitle);
             const desc = h('p', {style:'color:var(--text-muted);font-size:.82rem;margin-top:2px;margin-bottom:12px;line-height:1.6'}, L(link, 'desc'));
             card.appendChild(h('div', null, a, desc));
         });
