@@ -43,6 +43,15 @@ const i18n = {
         glossaryDesc:'Key financial and Operations terms',
         recentTopicsTitle:'Recent Industry Topics',
         recentTopicsDesc:'Knowing current trends shows you follow the industry',
+        industryNews:'Industry News',
+        industryNewsDesc:'Recent articles and trends in finance. Staying informed shows genuine interest in the industry.',
+        newsSettlement:'Settlement & Market Structure',
+        newsAI:'AI & Technology',
+        newsFirms:'Firm News & Earnings',
+        newsRegulation:'Regulation & Compliance',
+        newsJapan:'Japan / Asia',
+        communityTitle:'Career Community & Interview Resources',
+        communityDesc:'Forums, review sites, and interview experience reports from actual candidates.',
     },
     ja: {
         dashboard:'ダッシュボード', financeBasics:'金融基礎', tradeLifecycle:'トレードライフサイクル', marketKnowledge:'金融市場',
@@ -54,7 +63,7 @@ const i18n = {
         starMethod:'STARメソッド',
         starDesc:'<b>S</b>ituation（状況）: 背景を説明<br><b>T</b>ask（課題）: あなたの責任を述べる<br><b>A</b>ction（行動）: 何をしたか説明（ここが重点）<br><b>R</b>esult（結果）: 成果を数値とともに共有',
         financeBasicsTitle:'金融基礎',
-        financeBasicsDesc:'役割を理解するための背景知識です。暗記する必要はありません, 面接では大枠がわかっていれば十分です。',
+        financeBasicsDesc:'役割を理解するための背景知識です。暗記する必要はありません。面接では大枠がわかっていれば十分です。',
         tradeLifecycleTitle:'トレードライフサイクル知識',
         tradeLifecycleDesc:'注文から決済までの各ステップを理解する',
         marketTitle:'金融市場と商品',
@@ -69,6 +78,15 @@ const i18n = {
         glossaryDesc:'重要な金融・オペレーション用語',
         recentTopicsTitle:'最近の業界トピック',
         recentTopicsDesc:'最新のトレンドを知っていると業界への関心を示せます',
+        industryNews:'業界ニュース',
+        industryNewsDesc:'金融業界の最新記事とトレンド。業界動向を把握していることは、本気度を示す大きなアピールです。',
+        newsSettlement:'決済・市場構造',
+        newsAI:'AI・テクノロジー',
+        newsFirms:'企業ニュース・決算',
+        newsRegulation:'規制・コンプライアンス',
+        newsJapan:'日本・アジア',
+        communityTitle:'キャリアコミュニティ・面接体験',
+        communityDesc:'実際の候補者による面接体験記、口コミサイト、掲示板の情報。',
     }
 };
 function t(k){ return i18n[currentLang][k] || i18n.en[k] || k; }
@@ -114,8 +132,8 @@ const financeBasicsTopics = [
       keyPoints:['Nikkei 225: tracks 225 major Japanese companies','S&P 500: tracks 500 large US companies, widely used benchmark','Dow Jones: tracks 30 major US companies','Indices help you quickly understand overall market direction'],
       keyPointsJa:['日経225：日本の主要225社を追跡','S&P 500：米国の大企業500社を追跡、広く使われるベンチマーク','ダウ平均：米国の主要30社を追跡','指数は市場全体の方向を素早く把握するのに役立つ'] },
     { id:'fb5', title:'How Settlement Works', titleJa:'決済の仕組み',
-      content:'Settlement is the actual exchange of money and securities after a trade. Think of online shopping: clicking "buy" is like executing a trade, but the actual exchange of goods and money happens later, that\'s settlement. In financial markets, this typically happens T+1 (one business day after the trade) for US stocks or T+2 for many other markets. "DvP" (Delivery vs Payment) ensures both sides deliver simultaneously, so neither side gets cheated.',
-      contentJa:'決済とは、取引後にお金と証券を実際に交換することです。ネット通販で例えると：「購入」をクリックするのが取引の執行、実際に商品とお金がやり取りされるのが決済です。金融市場では通常、米国株はT+1（取引翌営業日）、他の多くの市場ではT+2で決済されます。「DvP」（Delivery vs Payment）は両者が同時に引き渡すことを保証し、どちらも騙されないようにします。',
+      content:'Settlement is the actual exchange of money and securities after a trade. Think of online shopping: clicking "buy" is like executing a trade, but the actual exchange of goods and money happens later, that\'s settlement. In financial markets, this typically happens T+1 (one business day after the trade) for US and Indian stocks, or T+2 for most European markets. Settlement cycles vary by region and asset class. "DvP" (Delivery vs Payment) ensures both sides deliver simultaneously, so neither side gets cheated.',
+      contentJa:'決済とは、取引後にお金と証券を実際に交換することです。ネット通販で例えると：「購入」をクリックするのが取引の執行、実際に商品とお金がやり取りされるのが決済です。金融市場では通常、米国株・インド株はT+1（取引翌営業日）、欧州の多くの市場ではT+2で決済されます。決済サイクルは地域や資産クラスにより異なります。「DvP」（Delivery vs Payment）は両者が同時に引き渡すことを保証し、どちらも騙されないようにします。',
       keyPoints:['Settlement = actual exchange of money and securities','T+1 means one business day after the trade','DvP ensures simultaneous delivery to protect both parties','Settlement fails require investigation and resolution'],
       keyPointsJa:['決済 = お金と証券の実際の交換','T+1は取引の翌営業日','DvPは両者の同時引き渡しを保証','決済失敗は調査と解決が必要'] },
     { id:'fb6', title:'What is Risk?', titleJa:'リスクとは？',
@@ -149,8 +167,8 @@ const tradeLifecycleSteps = [
       beginnerNote:'The CCP is a trusted middleman standing between two traders. If one can\'t pay, the CCP covers it using collected deposits. "Netting" means if you owe me $100 and I owe you $80, we just settle the $20 difference, much more efficient.',
       beginnerNoteJa:'CCP\u306f\u4e8c\u4eba\u306e\u30c8\u30ec\u30fc\u30c0\u30fc\u306e\u9593\u306b\u7acb\u3064\u4fe1\u983c\u3067\u304d\u308b\u4ef2\u4ecb\u8005\u3067\u3059\u3002\u4e00\u65b9\u304c\u652f\u6255\u3048\u306a\u304f\u306a\u3063\u3066\u3082\u3001CCP\u304c\u9810\u304b\u3063\u305f\u4fdd\u8a3c\u91d1\u3067\u30ab\u30d0\u30fc\u3057\u307e\u3059\u3002\u300c\u30cd\u30c3\u30c6\u30a3\u30f3\u30b0\u300d\u3068\u306f\u3001\u3042\u306a\u305f\u304c\u79c1\u306b100\u30c9\u30eb\u3001\u79c1\u304c\u3042\u306a\u305f\u306b80\u30c9\u30eb\u501f\u308a\u3066\u3044\u308b\u5834\u5408\u300120\u30c9\u30eb\u306e\u5dee\u984d\u3060\u3051\u6c7a\u6e08\u3059\u308b\u3053\u3068, \u306f\u308b\u304b\u306b\u52b9\u7387\u7684\u3067\u3059\u3002' },
     { id:'tl4', title:'Settlement', titleJa:'決済',
-      content:'Delivery vs Payment (DvP): securities delivered against payment. Settlement cycles vary by asset class and market: T+1 (US equities/ETFs since May 2024), T+2 (EU/Asia equities, corporate bonds), T+0 to T+2 (government bonds varies by market), T+2 (FX spot). Failed trades require investigation and resolution.',
-      contentJa:'DvP（Delivery vs Payment）：代金と引き換えに証券を引き渡す。決済サイクルは資産クラスと市場により異なる：T+1（2024年5月以降の米国株式/ETF）、T+2（欧州/アジア株式、社債）、T+0～T+2（国債は市場により異なる）、T+2（FXスポット）。決済失敗は調査と解決が必要。',
+      content:'Delivery vs Payment (DvP): securities delivered against payment. Settlement cycles vary by asset class and market: T+1 (US equities/ETFs/corporate bonds since May 2024, India since 2023), T+2 (EU equities, most Asia-Pacific markets), T+0 to T+2 (government bonds varies by market), T+2 (FX spot, though some pairs like USD/CAD settle T+1). Failed trades require investigation and resolution.',
+      contentJa:'DvP（Delivery vs Payment）：代金と引き換えに証券を引き渡す。決済サイクルは資産クラスと市場により異なる：T+1（2024年5月以降の米国株式/ETF/社債、2023年以降のインド）、T+2（EU株式、アジア太平洋の多くの市場）、T+0～T+2（国債は市場により異なる）、T+2（FXスポット、ただしUSD/CAD等の一部通貨ペアはT+1）。決済失敗は調査と解決が必要。',
       opsRole:'Monitor settlement status, investigate fails, manage breaks, liaise with custodians and counterparties.',
       opsRoleJa:'決済状況の監視、失敗の調査、ブレークの管理、カストディアンやカウンターパーティとの連絡。',
       beginnerNote:'Settlement is like the final step of online shopping, when the product is actually delivered and your payment is processed. DvP ensures this happens simultaneously so neither side gets cheated. "T+1" means this happens the next business day after the trade.',
@@ -179,8 +197,8 @@ const marketTopics = [
       beginnerNote:'Stocks represent ownership in a company. If you buy 1 share of a company with 100 shares total, you own 1%. ETFs are like pre-made baskets, instead of picking individual stocks, you buy one fund that contains many. This is the market most people think of when they hear "finance."',
       beginnerNoteJa:'株式は会社の所有権です。全100株の会社で1株買えば、1%のオーナーです。ETFは詰め合わせパックのようなもの, 個別株を選ぶ代わりに、多くの株を含む1つのファンドを買えます。「金融」と聞いて多くの人が最初にイメージする市場です。' },
     { id:'mk2', title:'Fixed Income', titleJa:'債券',
-      content:'Fixed Income = debt instruments. The issuer borrows money and pays it back with interest.\n\nKey products: Government bonds (US Treasuries, JGBs, Gilts, considered "risk-free"), Corporate bonds (issued by companies, higher yield = higher risk), Municipal bonds (US local governments), Money market instruments (T-bills, commercial paper, short-term).\n\nKey concepts: Coupon (periodic interest payment), Yield (effective return considering price), Maturity (when principal is repaid), Credit rating (Moody\'s/S&P/Fitch assess default risk, AAA is safest, below BBB- is "junk").\n\nSettlement: Government bonds typically T+1, corporate T+2. Often settled via Fedwire (US govt), Euroclear/Clearstream (EU).\n\nOps relevance: coupon and redemption processing, bond pricing (clean vs dirty price), interest accrual calculations, credit event monitoring. More complex than equities because of varied settlement conventions by product type.',
-      contentJa:'債券 = 借入証券。発行者がお金を借りて利息をつけて返す。\n\n主な商品：国債（米国債、JGB、ギルト,「リスクフリー」とされる）、社債（企業が発行、高利回り＝高リスク）、地方債（米国の地方自治体）、短期金融商品（T-bills、コマーシャルペーパー, 短期）。\n\n重要概念：クーポン（定期的な利息支払い）、利回り（価格を考慮した実効リターン）、満期（元本が返済される時）、信用格付け（Moody\'s/S&P/Fitchがデフォルトリスクを評価, AAAが最も安全、BBB-未満は「ジャンク」）。\n\n決済：国債は通常T+1、社債はT+2。Fedwire（米国国債）、Euroclear/Clearstream（EU）で決済されることが多い。\n\nOpsの関わり：クーポン・償還処理、債券の価格計算（クリーン価格 vs ダーティ価格）、経過利息計算、信用イベントのモニタリング。商品タイプごとに決済慣行が異なるため、株式より複雑。',
+      content:'Fixed Income = debt instruments. The issuer borrows money and pays it back with interest.\n\nKey products: Government bonds (US Treasuries, JGBs, Gilts, considered "risk-free"), Corporate bonds (issued by companies, higher yield = higher risk), Municipal bonds (US local governments), Money market instruments (T-bills, commercial paper, short-term).\n\nKey concepts: Coupon (periodic interest payment), Yield (effective return considering price), Maturity (when principal is repaid), Credit rating (Moody\'s/S&P/Fitch assess default risk, AAA is safest, below BBB- is "junk").\n\nSettlement: Government bonds typically T+1. US corporate bonds moved to T+1 (May 2024), other markets may still be T+2. Often settled via Fedwire (US govt), Euroclear/Clearstream (EU).\n\nOps relevance: coupon and redemption processing, bond pricing (clean vs dirty price), interest accrual calculations, credit event monitoring. More complex than equities because of varied settlement conventions by product type.',
+      contentJa:'債券 = 借入証券。発行者がお金を借りて利息をつけて返す。\n\n主な商品：国債（米国債、JGB、ギルト,「リスクフリー」とされる）、社債（企業が発行、高利回り＝高リスク）、地方債（米国の地方自治体）、短期金融商品（T-bills、コマーシャルペーパー, 短期）。\n\n重要概念：クーポン（定期的な利息支払い）、利回り（価格を考慮した実効リターン）、満期（元本が返済される時）、信用格付け（Moody\'s/S&P/Fitchがデフォルトリスクを評価, AAAが最も安全、BBB-未満は「ジャンク」）。\n\n決済：国債は通常T+1。米国社債は2024年5月にT+1へ移行、他市場はT+2の場合あり。Fedwire（米国国債）、Euroclear/Clearstream（EU）で決済されることが多い。\n\nOpsの関わり：クーポン・償還処理、債券の価格計算（クリーン価格 vs ダーティ価格）、経過利息計算、信用イベントのモニタリング。商品タイプごとに決済慣行が異なるため、株式より複雑。',
       beginnerNote:'Bonds are like IOUs, you lend money to a government or company, they pay you interest regularly, and return the principal at maturity. Government bonds are considered very safe. Corporate bonds pay more interest but carry more risk. Credit ratings (AAA to D) tell you how safe a bond is.',
       beginnerNoteJa:'債券は借用書のようなもの, 政府や企業にお金を貸し、定期的に利息をもらい、満期に元本が返ってきます。国債は非常に安全とされ、社債はより多くの利息を払うがリスクも大きい。信用格付け（AAAからD）で安全度がわかります。' },
     { id:'mk3', title:'FX (Foreign Exchange)', titleJa:'外国為替 (FX)',
@@ -203,7 +221,7 @@ const marketTopics = [
 // --- Behavioral Questions ---
 const behavioralQuestions = [
     { id:'b0', question:'Why the financial industry?', questionJa:'なぜ金融業界を志望しますか？',
-      tips:'This is often the first question for candidates without a finance background. Three effective angles: (1) Social infrastructure: finance is the lifeblood of the economy, you want to support businesses and society. (2) Professionalism:you thrive in environments demanding accuracy and expertise. (3) Dynamism:global markets, fast-paced work, constant learning. Connect to your own experiences: accounting for a student club, interest sparked by a news event, a course that opened your eyes. Be specific about what drew you in and why it stuck. New grads: it is completely fine to say your interest is recent. What matters is that your curiosity is genuine and you can explain it.',
+      tips:'This is often the first question for candidates without a finance background. Three effective angles: (1) Social infrastructure: finance is the lifeblood of the economy, you want to support businesses and society. (2) Professionalism: you thrive in environments demanding accuracy and expertise. (3) Dynamism: global markets, fast-paced work, constant learning. Connect to your own experiences: accounting for a student club, interest sparked by a news event, a course that opened your eyes. Be specific about what drew you in and why it stuck. New grads: it is completely fine to say your interest is recent. What matters is that your curiosity is genuine and you can explain it.',
       tipsJa:'金融のバックグラウンドがない候補者に最初に聞かれることが多い質問です。効果的な3つの切り口：(1) 社会インフラ: 金融は経済の血液であり、企業や社会を支えたい。(2) プロフェッショナリズム:正確さと専門性が求められる環境で成長したい。(3) ダイナミズム:グローバルな市場、スピード感のある仕事、常に学び続ける環境。自分の経験と結びつける：サークルの会計、ニュースがきっかけの関心、視野を広げた授業。何に惹かれ、なぜそれが続いているかを具体的に。新卒の場合：関心が最近であっても全く問題ありません。好奇心が本物であること、それを説明できることが大切です。',
       starPrompt:{s:'Your background and what sparked your interest in finance',t:'Understanding why finance over other industries',a:'What you researched, learned, or experienced',r:'Why finance is the right fit for your goals'},
       starPromptJa:{s:'あなたの経歴と金融に興味を持ったきっかけ',t:'なぜ他の業界ではなく金融なのかの理解',a:'何を調べ、学び、経験したか',r:'なぜ金融が自分の目標に合っているか'} },
@@ -292,8 +310,8 @@ const technicalQuestions = [
       beginnerNote:'The CCP is a trusted middleman. When two strangers trade, the CCP steps in between. If one can\'t pay, the CCP covers it using collected deposits (margins). This is why markets function even between parties who don\'t trust each other.',
       beginnerNoteJa:'CCP\u306f\u4fe1\u983c\u3067\u304d\u308b\u4ef2\u4ecb\u8005\u3002\u898b\u77e5\u3089\u306c\u8005\u540c\u58eb\u304c\u53d6\u5f15\u3059\u308b\u6642\u3001CCP\u304c\u9593\u306b\u5165\u308b\u3002\u4e00\u65b9\u304c\u652f\u6255\u3048\u306a\u304f\u306a\u3063\u3066\u3082\u3001CCP\u304c\u9810\u304b\u3063\u305f\u4fdd\u8a3c\u91d1\uff08\u8a3c\u62e0\u91d1\uff09\u3067\u30ab\u30d0\u30fc\u3002\u3060\u304b\u3089\u4e92\u3044\u3092\u4fe1\u983c\u3057\u3066\u3044\u306a\u3044\u5f53\u4e8b\u8005\u9593\u3067\u3082\u5e02\u5834\u304c\u6a5f\u80fd\u3067\u304d\u308b\u3002' },
     { id:'tq4', question:'What happens when a trade fails to settle?', questionJa:'取引の決済が失敗するとどうなりますか？',
-      answer:'A settlement fail occurs when securities or cash are not delivered on the intended settlement date.\n\nCommon causes:\n\u2022 Seller doesn\'t have securities (short position, pending receipt from another trade)\n\u2022 Incorrect SSIs (wrong account, wrong custodian)\n\u2022 Operational errors (wrong settlement date, unmatched instructions)\n\u2022 Counterparty-side issues (their custodian rejects the instruction)\n\nImpact:\n\u2022 Funding costs (borrowing securities or cash to cover the gap)\n\u2022 Regulatory penalties, CSDR in EU imposes cash penalties and mandatory buy-ins for persistent fails\n\u2022 Reputational risk with counterparties and regulators\n\u2022 Cascading effect, your fail may cause your counterparty\'s trade to fail too\n\nResolution: Investigate root cause \u2192 contact counterparty/custodian \u2192 arrange partial settlement if possible \u2192 explore securities lending \u2192 escalate aged fails.',
-      answerJa:'\u6c7a\u6e08\u5931\u6557\u306f\u4e88\u5b9a\u6c7a\u6e08\u65e5\u306b\u8a3c\u5238\u307e\u305f\u306f\u73fe\u91d1\u304c\u5f15\u304d\u6e21\u3055\u308c\u306a\u304b\u3063\u305f\u5834\u5408\u306b\u767a\u751f\u3002\n\n\u4e00\u822c\u7684\u306a\u539f\u56e0\uff1a\n\u2022 \u58f2\u308a\u624b\u304c\u8a3c\u5238\u3092\u4fdd\u6709\u3057\u3066\u3044\u306a\u3044\uff08\u30b7\u30e7\u30fc\u30c8\u30dd\u30b8\u30b7\u30e7\u30f3\u3001\u5225\u53d6\u5f15\u304b\u3089\u306e\u53d7\u3051\u53d6\u308a\u5f85\u3061\uff09\n\u2022 SSI\u306e\u8aa4\u308a\uff08\u53e3\u5ea7\u756a\u53f7\u3001\u30ab\u30b9\u30c8\u30c7\u30a3\u30a2\u30f3\u306e\u9593\u9055\u3044\uff09\n\u2022 \u30aa\u30da\u30ec\u30fc\u30b7\u30e7\u30f3\u30a8\u30e9\u30fc\uff08\u6c7a\u6e08\u65e5\u306e\u9593\u9055\u3044\u3001\u30de\u30c3\u30c1\u3057\u3066\u3044\u306a\u3044\u6307\u56f3\uff09\n\u2022 \u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3\u5074\u306e\u554f\u984c\uff08\u5148\u65b9\u306e\u30ab\u30b9\u30c8\u30c7\u30a3\u30a2\u30f3\u304c\u6307\u56f3\u3092\u62d2\u5426\uff09\n\n\u5f71\u97ff\uff1a\n\u2022 \u8cc7\u91d1\u8abf\u9054\u30b3\u30b9\u30c8\uff08\u30ae\u30e3\u30c3\u30d7\u3092\u30ab\u30d0\u30fc\u3059\u308b\u305f\u3081\u306e\u8a3c\u5238\u30fb\u73fe\u91d1\u306e\u501f\u5165\uff09\n\u2022 \u898f\u5236\u30da\u30ca\u30eb\u30c6\u30a3, EU\u306eCSDR\u306f\u73fe\u91d1\u30da\u30ca\u30eb\u30c6\u30a3\u3068\u9577\u671f\u30d5\u30a7\u30a4\u30eb\u3078\u306e\u5f37\u5236\u30d0\u30a4\u30a4\u30f3\u3092\u8ab2\u3059\n\u2022 \u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3\u3084\u898f\u5236\u5f53\u5c40\u304b\u3089\u306e\u30ec\u30d4\u30e5\u30c6\u30fc\u30b7\u30e7\u30f3\u30ea\u30b9\u30af\n\u2022 \u9023\u9396\u7684\u5f71\u97ff, \u3042\u306a\u305f\u306e\u30d5\u30a7\u30a4\u30eb\u304c\u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3\u306e\u30d5\u30a7\u30a4\u30eb\u3082\u5f15\u304d\u8d77\u3053\u3059\u53ef\u80fd\u6027\n\n\u89e3\u6c7a\uff1a\u6839\u672c\u539f\u56e0\u3092\u8abf\u67fb \u2192 \u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3/\u30ab\u30b9\u30c8\u30c7\u30a3\u30a2\u30f3\u306b\u9023\u7d61 \u2192 \u53ef\u80fd\u306a\u3089\u90e8\u5206\u6c7a\u6e08\u3092\u624b\u914d \u2192 \u8a3c\u5238\u8cb8\u501f\u3092\u691c\u8a0e \u2192 \u9577\u671f\u30d5\u30a7\u30a4\u30eb\u3092\u30a8\u30b9\u30ab\u30ec\u30fc\u30b7\u30e7\u30f3\u3002',
+      answer:'A settlement fail occurs when securities or cash are not delivered on the intended settlement date.\n\nCommon causes:\n\u2022 Seller doesn\'t have securities (short position, pending receipt from another trade)\n\u2022 Incorrect SSIs (wrong account, wrong custodian)\n\u2022 Operational errors (wrong settlement date, unmatched instructions)\n\u2022 Counterparty-side issues (their custodian rejects the instruction)\n\nImpact:\n\u2022 Funding costs (borrowing securities or cash to cover the gap)\n\u2022 Regulatory penalties, CSDR in EU imposes daily cash penalties for fails (mandatory buy-in regime postponed (no active start date))\n\u2022 Reputational risk with counterparties and regulators\n\u2022 Cascading effect, your fail may cause your counterparty\'s trade to fail too\n\nResolution: Investigate root cause \u2192 contact counterparty/custodian \u2192 arrange partial settlement if possible \u2192 explore securities lending \u2192 escalate aged fails.',
+      answerJa:'\u6c7a\u6e08\u5931\u6557\u306f\u4e88\u5b9a\u6c7a\u6e08\u65e5\u306b\u8a3c\u5238\u307e\u305f\u306f\u73fe\u91d1\u304c\u5f15\u304d\u6e21\u3055\u308c\u306a\u304b\u3063\u305f\u5834\u5408\u306b\u767a\u751f\u3002\n\n\u4e00\u822c\u7684\u306a\u539f\u56e0\uff1a\n\u2022 \u58f2\u308a\u624b\u304c\u8a3c\u5238\u3092\u4fdd\u6709\u3057\u3066\u3044\u306a\u3044\uff08\u30b7\u30e7\u30fc\u30c8\u30dd\u30b8\u30b7\u30e7\u30f3\u3001\u5225\u53d6\u5f15\u304b\u3089\u306e\u53d7\u3051\u53d6\u308a\u5f85\u3061\uff09\n\u2022 SSI\u306e\u8aa4\u308a\uff08\u53e3\u5ea7\u756a\u53f7\u3001\u30ab\u30b9\u30c8\u30c7\u30a3\u30a2\u30f3\u306e\u9593\u9055\u3044\uff09\n\u2022 \u30aa\u30da\u30ec\u30fc\u30b7\u30e7\u30f3\u30a8\u30e9\u30fc\uff08\u6c7a\u6e08\u65e5\u306e\u9593\u9055\u3044\u3001\u30de\u30c3\u30c1\u3057\u3066\u3044\u306a\u3044\u6307\u56f3\uff09\n\u2022 \u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3\u5074\u306e\u554f\u984c\uff08\u5148\u65b9\u306e\u30ab\u30b9\u30c8\u30c7\u30a3\u30a2\u30f3\u304c\u6307\u56f3\u3092\u62d2\u5426\uff09\n\n\u5f71\u97ff\uff1a\n\u2022 \u8cc7\u91d1\u8abf\u9054\u30b3\u30b9\u30c8\uff08\u30ae\u30e3\u30c3\u30d7\u3092\u30ab\u30d0\u30fc\u3059\u308b\u305f\u3081\u306e\u8a3c\u5238\u30fb\u73fe\u91d1\u306e\u501f\u5165\uff09\n\u2022 \u898f\u5236\u30da\u30ca\u30eb\u30c6\u30a3, EU\u306eCSDR\u306f\u65e5\u6b21\u73fe\u91d1\u30da\u30ca\u30eb\u30c6\u30a3\u3092\u8ab2\u3059\uff08\u5f37\u5236\u30d0\u30a4\u30a4\u30f3\u5236\u5ea6\u306f\u5ef6\u671f\u4e2d\uff08\u958b\u59cb\u65e5\u672a\u5b9a\uff09\uff09\n\u2022 \u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3\u3084\u898f\u5236\u5f53\u5c40\u304b\u3089\u306e\u30ec\u30d4\u30e5\u30c6\u30fc\u30b7\u30e7\u30f3\u30ea\u30b9\u30af\n\u2022 \u9023\u9396\u7684\u5f71\u97ff, \u3042\u306a\u305f\u306e\u30d5\u30a7\u30a4\u30eb\u304c\u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3\u306e\u30d5\u30a7\u30a4\u30eb\u3082\u5f15\u304d\u8d77\u3053\u3059\u53ef\u80fd\u6027\n\n\u89e3\u6c7a\uff1a\u6839\u672c\u539f\u56e0\u3092\u8abf\u67fb \u2192 \u30ab\u30a6\u30f3\u30bf\u30fc\u30d1\u30fc\u30c6\u30a3/\u30ab\u30b9\u30c8\u30c7\u30a3\u30a2\u30f3\u306b\u9023\u7d61 \u2192 \u53ef\u80fd\u306a\u3089\u90e8\u5206\u6c7a\u6e08\u3092\u624b\u914d \u2192 \u8a3c\u5238\u8cb8\u501f\u3092\u691c\u8a0e \u2192 \u9577\u671f\u30d5\u30a7\u30a4\u30eb\u3092\u30a8\u30b9\u30ab\u30ec\u30fc\u30b7\u30e7\u30f3\u3002',
       beginnerNote:'Like an online order that wasn\'t delivered on time. The buyer doesn\'t have their item, the seller doesn\'t have the money, and penalties may apply. Operations needs to figure out why and fix it quickly.',
       beginnerNoteJa:'ネット通販で注文した商品が時間通りに届かないようなもの。買い手は商品がなく、売り手はお金がなく、ペナルティが発生することも。Opsは原因を突き止めて早急に修正する必要があります。' },
     { id:'tq5', question:'What is reconciliation and why is it important?', questionJa:'照合（リコンシリエーション）とは何で、なぜ重要ですか？',
@@ -322,8 +340,8 @@ const technicalQuestions = [
       beginnerNote:'STP means a trade flows from start to finish without anyone touching it manually. More automation = fewer errors, faster settlement. Ops targets 95%+ automation, the remaining exceptions are where human expertise matters.',
       beginnerNoteJa:'STP\u306f\u53d6\u5f15\u304c\u6700\u521d\u304b\u3089\u6700\u5f8c\u307e\u3067\u8ab0\u306e\u624b\u3082\u4ecb\u3055\u305a\u81ea\u52d5\u3067\u6d41\u308c\u308b\u3053\u3068\u3002\u81ea\u52d5\u5316\u304c\u9032\u3080\u307b\u3069\u30a8\u30e9\u30fc\u306f\u6e1b\u308a\u6c7a\u6e08\u306f\u901f\u304f\u306a\u308b\u3002Ops\u306f95%\u4ee5\u4e0a\u306e\u81ea\u52d5\u5316\u3092\u76ee\u6a19, \u6b8b\u308a\u306e\u4f8b\u5916\u3053\u305d\u4eba\u9593\u306e\u5c02\u9580\u6027\u304c\u5fc5\u8981\u306a\u90e8\u5206\u3067\u3059\u3002' },
     { id:'tq10', question:'What regulations affect Operations?', questionJa:'オペレーションに影響する規制は何ですか？',
-      answer:'Major regulations Ops must comply with:\n\nPost-2008 reforms:\n\u2022 Dodd-Frank (US), EMIR (EU), central clearing of standardized OTC derivatives, trade reporting to repositories\n\u2022 Basel III/IV, bank capital requirements (buffer capital against losses)\n\nMarket structure:\n\u2022 MiFID II (EU), trade transparency, best execution, transaction reporting\n\u2022 CSDR (EU), settlement discipline (cash penalties for fails, mandatory buy-ins)\n\u2022 Reg SHO (US), short selling rules\n\nCompliance:\n\u2022 SOX (Sarbanes-Oxley), internal controls, audit trails\n\u2022 AML/KYC, detect suspicious transactions, verify client identity, sanctions screening (OFAC/EU lists)\n\nMargin:\n\u2022 UMR (Uncleared Margin Rules), IM/VM for bilateral OTC derivatives above thresholds\n\nOps role: Ensure timely trade reporting, complete audit trails, sanctions screening on every transaction, settlement discipline controls. Non-compliance = fines, reputational damage, potential license loss.',
-      answerJa:'Ops\u304c\u9075\u5b88\u3059\u3079\u304d\u4e3b\u8981\u898f\u5236\uff1a\n\n2008\u5e74\u5371\u6a5f\u5f8c\u306e\u6539\u9769\uff1a\n\u2022 \u30c9\u30c3\u30c9\u30fb\u30d5\u30e9\u30f3\u30af\u6cd5\uff08\u7c73\u56fd\uff09/ EMIR\uff08EU\uff09, \u6a19\u6e96\u5316OTC\u30c7\u30ea\u30d0\u30c6\u30a3\u30d6\u306e\u4e2d\u592e\u6e05\u7b97\u3001\u30c8\u30ec\u30fc\u30c9\u30ea\u30dd\u30b8\u30c8\u30ea\u3078\u306e\u5831\u544a\n\u2022 Basel III/IV, \u9280\u884c\u306e\u81ea\u5df1\u8cc7\u672c\u898f\u5236\uff08\u640d\u5931\u306b\u5bfe\u3059\u308b\u30d0\u30c3\u30d5\u30a1\u8cc7\u672c\uff09\n\n\u5e02\u5834\u69cb\u9020\uff1a\n\u2022 MiFID II\uff08EU\uff09, \u53d6\u5f15\u306e\u900f\u660e\u6027\u3001\u6700\u826f\u57f7\u884c\u3001\u53d6\u5f15\u5831\u544a\n\u2022 CSDR\uff08EU\uff09, \u6c7a\u6e08\u898f\u5f8b\uff08\u30d5\u30a7\u30a4\u30eb\u3078\u306e\u73fe\u91d1\u30da\u30ca\u30eb\u30c6\u30a3\u3001\u5f37\u5236\u30d0\u30a4\u30a4\u30f3\uff09\n\u2022 Reg SHO\uff08\u7c73\u56fd\uff09, \u7a7a\u58f2\u308a\u898f\u5236\n\n\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\uff1a\n\u2022 SOX\u6cd5, \u5185\u90e8\u7d71\u5236\u3001\u76e3\u67fb\u8a3c\u8de1\n\u2022 AML/KYC, \u7591\u308f\u3057\u3044\u53d6\u5f15\u306e\u691c\u51fa\u3001\u672c\u4eba\u78ba\u8a8d\u3001\u5236\u88c1\u5bfe\u8c61\u30b9\u30af\u30ea\u30fc\u30cb\u30f3\u30b0\uff08OFAC/EU\u30ea\u30b9\u30c8\uff09\n\n\u8a3c\u62e0\u91d1\uff1a\n\u2022 UMR\uff08\u975e\u6e05\u7b97\u8a3c\u62e0\u91d1\u898f\u5247\uff09, \u95be\u5024\u4ee5\u4e0a\u306e\u4e8c\u8005\u9593OTC\u30c7\u30ea\u30d0\u30c6\u30a3\u30d6\u306bIM/VM\u304c\u5fc5\u8981\n\nOps\u306e\u5f79\u5272\uff1a\u53d6\u5f15\u5831\u544a\u306e\u671f\u9650\u9075\u5b88\u3001\u5b8c\u5168\u306a\u76e3\u67fb\u8a3c\u8de1\u3001\u5168\u53d6\u5f15\u306e\u5236\u88c1\u5bfe\u8c61\u30b9\u30af\u30ea\u30fc\u30cb\u30f3\u30b0\u3001\u6c7a\u6e08\u898f\u5f8b\u306e\u7ba1\u7406\u3002\u975e\u9075\u5b88 = \u7f70\u91d1\u3001\u30ec\u30d4\u30e5\u30c6\u30fc\u30b7\u30e7\u30f3\u640d\u5bb3\u3001\u30e9\u30a4\u30bb\u30f3\u30b9\u55aa\u5931\u306e\u53ef\u80fd\u6027\u3002',
+      answer:'Major regulations Ops must comply with:\n\nPost-2008 reforms:\n\u2022 Dodd-Frank (US), EMIR (EU), central clearing of standardized OTC derivatives, trade reporting to repositories\n\u2022 Basel III/IV, bank capital requirements (buffer capital against losses)\n\nMarket structure:\n\u2022 MiFID II (EU), trade transparency, best execution, transaction reporting\n\u2022 CSDR (EU), settlement discipline (daily cash penalties for fails; mandatory buy-in regime postponed)\n\u2022 Reg SHO (US), short selling rules\n\nCompliance:\n\u2022 SOX (Sarbanes-Oxley), internal controls, audit trails\n\u2022 AML/KYC, detect suspicious transactions, verify client identity, sanctions screening (OFAC/EU lists)\n\nMargin:\n\u2022 UMR (Uncleared Margin Rules), IM/VM for bilateral OTC derivatives above thresholds\n\nOps role: Ensure timely trade reporting, complete audit trails, sanctions screening on every transaction, settlement discipline controls. Non-compliance = fines, reputational damage, potential license loss.',
+      answerJa:'Ops\u304c\u9075\u5b88\u3059\u3079\u304d\u4e3b\u8981\u898f\u5236\uff1a\n\n2008\u5e74\u5371\u6a5f\u5f8c\u306e\u6539\u9769\uff1a\n\u2022 \u30c9\u30c3\u30c9\u30fb\u30d5\u30e9\u30f3\u30af\u6cd5\uff08\u7c73\u56fd\uff09/ EMIR\uff08EU\uff09, \u6a19\u6e96\u5316OTC\u30c7\u30ea\u30d0\u30c6\u30a3\u30d6\u306e\u4e2d\u592e\u6e05\u7b97\u3001\u30c8\u30ec\u30fc\u30c9\u30ea\u30dd\u30b8\u30c8\u30ea\u3078\u306e\u5831\u544a\n\u2022 Basel III/IV, \u9280\u884c\u306e\u81ea\u5df1\u8cc7\u672c\u898f\u5236\uff08\u640d\u5931\u306b\u5bfe\u3059\u308b\u30d0\u30c3\u30d5\u30a1\u8cc7\u672c\uff09\n\n\u5e02\u5834\u69cb\u9020\uff1a\n\u2022 MiFID II\uff08EU\uff09, \u53d6\u5f15\u306e\u900f\u660e\u6027\u3001\u6700\u826f\u57f7\u884c\u3001\u53d6\u5f15\u5831\u544a\n\u2022 CSDR\uff08EU\uff09, \u6c7a\u6e08\u898f\u5f8b\uff08\u30d5\u30a7\u30a4\u30eb\u3078\u306e\u65e5\u6b21\u73fe\u91d1\u30da\u30ca\u30eb\u30c6\u30a3\uff1b\u5f37\u5236\u30d0\u30a4\u30a4\u30f3\u5236\u5ea6\u306f\u5ef6\u671f\u4e2d\uff09\n\u2022 Reg SHO\uff08\u7c73\u56fd\uff09, \u7a7a\u58f2\u308a\u898f\u5236\n\n\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\uff1a\n\u2022 SOX\u6cd5, \u5185\u90e8\u7d71\u5236\u3001\u76e3\u67fb\u8a3c\u8de1\n\u2022 AML/KYC, \u7591\u308f\u3057\u3044\u53d6\u5f15\u306e\u691c\u51fa\u3001\u672c\u4eba\u78ba\u8a8d\u3001\u5236\u88c1\u5bfe\u8c61\u30b9\u30af\u30ea\u30fc\u30cb\u30f3\u30b0\uff08OFAC/EU\u30ea\u30b9\u30c8\uff09\n\n\u8a3c\u62e0\u91d1\uff1a\n\u2022 UMR\uff08\u975e\u6e05\u7b97\u8a3c\u62e0\u91d1\u898f\u5247\uff09, \u95be\u5024\u4ee5\u4e0a\u306e\u4e8c\u8005\u9593OTC\u30c7\u30ea\u30d0\u30c6\u30a3\u30d6\u306bIM/VM\u304c\u5fc5\u8981\n\nOps\u306e\u5f79\u5272\uff1a\u53d6\u5f15\u5831\u544a\u306e\u671f\u9650\u9075\u5b88\u3001\u5b8c\u5168\u306a\u76e3\u67fb\u8a3c\u8de1\u3001\u5168\u53d6\u5f15\u306e\u5236\u88c1\u5bfe\u8c61\u30b9\u30af\u30ea\u30fc\u30cb\u30f3\u30b0\u3001\u6c7a\u6e08\u898f\u5f8b\u306e\u7ba1\u7406\u3002\u975e\u9075\u5b88 = \u7f70\u91d1\u3001\u30ec\u30d4\u30e5\u30c6\u30fc\u30b7\u30e7\u30f3\u640d\u5bb3\u3001\u30e9\u30a4\u30bb\u30f3\u30b9\u55aa\u5931\u306e\u53ef\u80fd\u6027\u3002',
       beginnerNote:'Regulations are the rules banks must follow. After the 2008 crisis, governments created stricter rules. Ops ensures the bank follows them all, reporting trades, checking sanctions lists, keeping complete records.',
       beginnerNoteJa:'\u898f\u5236\u306f\u9280\u884c\u304c\u5f93\u3046\u3079\u304d\u30eb\u30fc\u30eb\u30022008\u5e74\u306e\u5371\u6a5f\u5f8c\u3001\u4e16\u754c\u4e2d\u306e\u653f\u5e9c\u304c\u3088\u308a\u53b3\u3057\u3044\u30eb\u30fc\u30eb\u3092\u4f5c\u308a\u307e\u3057\u305f\u3002Ops\u306f\u305d\u308c\u3089\u5168\u3066\u306b\u9280\u884c\u304c\u5f93\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u78ba\u8a8d, \u53d6\u5f15\u5831\u544a\u3001\u5236\u88c1\u30ea\u30b9\u30c8\u306e\u78ba\u8a8d\u3001\u5b8c\u5168\u306a\u8a18\u9332\u306e\u4fdd\u6301\u3002' },
 ];
@@ -331,8 +349,8 @@ const technicalQuestions = [
 // --- Case Studies ---
 const caseStudies = [
     { id:'cs1', title:'Settlement Fail Investigation', titleJa:'決済失敗の調査',
-      scenario:'A large equity trade ($50M) on a European exchange failed to settle on T+2. The counterparty claims they never received our settlement instructions. Your team is responsible for resolving this before end of day to avoid settlement discipline penalties under CSDR (EU regulation). Note: In the US, settlement fails may incur SEC Rule 204 buy-in requirements instead.',
-      scenarioJa:'欧州の取引所での大口株式取引（$50M）がT+2に決済失敗しました。カウンターパーティは決済指示を受け取っていないと主張しています。CSDR（EU規制）の決済規律ペナルティを避けるため、あなたのチームは日中に解決する責任があります。注意：米国では、決済失敗はSEC Rule 204のバイイン要件が適用される場合があります。',
+      scenario:'A large equity trade ($50M) on a European exchange failed to settle on T+2. The counterparty claims they never received our settlement instructions. Your team is responsible for resolving this before end of day to avoid settlement discipline penalties under CSDR (EU regulation). Note: In the US, SEC Rule 204 requires broker-dealers to close out fails-to-deliver within specified timeframes.',
+      scenarioJa:'欧州の取引所での大口株式取引（$50M）がT+2に決済失敗しました。カウンターパーティは決済指示を受け取っていないと主張しています。CSDR（EU規制）の決済規律ペナルティを避けるため、あなたのチームは日中に解決する責任があります。注意：米国では、SEC Rule 204によりブローカーディーラーは所定の期間内にフェイル・トゥ・デリバーをクローズアウトする義務があります。',
       framework:[
         {step:'Investigate',stepJa:'調査', items:['Check SWIFT message logs for MT540/541','Verify SSI (Standard Settlement Instructions) on file','Confirm custodian received and matched instructions','Check for any static data mismatches'],
          itemsJa:['MT540/541のSWIFTメッセージログを確認','ファイル上のSSI（標準決済指示）を検証','カストディアンが指示を受領・照合したか確認','スタティックデータの不一致をチェック']},
@@ -458,8 +476,8 @@ const glossaryTerms = [
     {term:'T+1 / T+2', termJa:'T+1 / T+2',
       def:'Settlement cycle. T = Trade date. US equities moved to T+1 in May 2024.',
       defJa:'決済サイクル。T=取引日。米国株式は2024年5月にT+1に移行。',
-      usage:'Settlement planning: "This settles T+1." Cross-border: "Japan equities settle T+2."',
-      usageJa:'決済計画：「これはT+1で決済」。クロスボーダー：「日本株はT+2で決済」。',
+      usage:'Settlement planning: "This settles T+1." Cross-border: "EU equities still settle T+2." India moved to T+1 in 2023.',
+      usageJa:'決済計画：「これはT+1で決済」。クロスボーダー：「EU株式はまだT+2で決済」。インドは2023年にT+1へ移行済み。',
       beginnerDef:'How many business days after buying before money and securities actually change hands.', beginnerDefJa:'購入後、お金と証券が実際にやり取りされるまでの営業日数。'},
     {term:'Operational Risk', termJa:'オペレーショナルリスク',
       def:'Risk of loss from failed internal processes, people, systems, or external events.',
@@ -468,8 +486,8 @@ const glossaryTerms = [
       usageJa:'インシデント報告：「これはオペレーショナルリスクイベント」。リスクフレームワーク：RCSA、KRI管理で使用。',
       beginnerDef:'The risk that something goes wrong because of human error, computer failures, or broken processes.', beginnerDefJa:'人的ミス、コンピュータ障害、壊れたプロセスが原因で何かがうまくいかないリスク。'},
     {term:'CSDR', termJa:'CSDR', fullName:'Central Securities Depositories Regulation',
-      def:'EU regulation on settlement discipline. Imposes penalties for settlement fails and mandatory buy-ins.',
-      defJa:'決済規律に関するEU規制。決済失敗に対するペナルティと強制バイインを課す。',
+      def:'EU regulation on settlement discipline. Imposes daily cash penalties for settlement fails. Mandatory buy-in regime was proposed but has been postponed (no active start date).',
+      defJa:'決済規律に関するEU規制。決済失敗に対する日次現金ペナルティを課す。強制バイイン制度は提案されたが延期中（開始日未定）。',
       usage:'EU settlement: "CSDR penalties apply to this fail." Regulatory compliance discussions.',
       usageJa:'EU決済：「この失敗にはCSDRペナルティが適用される」。規制コンプライアンスの議論で使用。'},
     {term:'Herstatt Risk', termJa:'ヘルシュタットリスク',
@@ -495,8 +513,8 @@ const glossaryTerms = [
     {term:'Buy-in', termJa:'バイイン',
       def:'Buyer purchases securities in the open market because the seller failed to deliver. Seller bears the price difference.',
       defJa:'売り手が引き渡しに失敗したため、買い手が公開市場で証券を購入。売り手が価格差を負担。',
-      usage:'Settlement fails: "If not resolved by day 4, we initiate a buy-in." CSDR mandatory buy-in rules.',
-      usageJa:'決済失敗：「4日目までに解決しなければバイインを開始」。CSDRの強制バイインルールで使用。'},
+      usage:'Settlement fails: "If not resolved by day 4, we initiate a buy-in." Note: CSDR mandatory buy-in regime is currently postponed.',
+      usageJa:'決済失敗：「4日目までに解決しなければバイインを開始」。注意：CSDRの強制バイイン制度は現在延期中。'},
     {term:'PvP / FOP', termJa:'PvP / FOP', fullName:'Payment vs Payment / Free of Payment',
       def:'PvP: simultaneous exchange of two currencies (via CLS). FOP: securities transfer without cash (e.g., collateral movements).',
       defJa:'PvP：2通貨の同時交換（CLS経由）。FOP：現金交換なしの証券移転（例：担保移動）。',
@@ -595,7 +613,7 @@ function beginnerDefEl(obj) {
 }
 
 function updateNavLabels(){
-    const labels = { dashboard:t('dashboard'), 'finance-basics':t('financeBasics'), 'trade-lifecycle':t('tradeLifecycle'), 'market-knowledge':t('marketKnowledge'), behavioral:t('behavioral'), technical:t('technical'), 'case-study':t('caseStudy'), glossary:t('glossary'), references:t('references') };
+    const labels = { dashboard:t('dashboard'), 'finance-basics':t('financeBasics'), 'trade-lifecycle':t('tradeLifecycle'), 'market-knowledge':t('marketKnowledge'), behavioral:t('behavioral'), technical:t('technical'), 'case-study':t('caseStudy'), glossary:t('glossary'), 'industry-news':t('industryNews'), references:t('references') };
     navLinks.forEach(l => { const icon = l.querySelector('.nav-icon'); l.innerHTML = (icon ? icon.outerHTML : '') + ' ' + (labels[l.dataset.section] || ''); });
     langBtn.textContent = currentLang === 'ja' ? 'EN / JA  (JA)' : 'EN / JA  (EN)';
 }
@@ -612,7 +630,7 @@ function navigateTo(section, params){
     currentSection = section;
     navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === section));
     closeSidebar();
-    const r = { dashboard:renderDashboard, 'finance-basics':renderFinanceBasics, 'trade-lifecycle':renderTradeLifecycle, 'market-knowledge':renderMarketKnowledge, behavioral:renderBehavioral, technical:renderTechnical, 'case-study':renderCaseStudy, glossary:renderGlossary, references:renderReferences };
+    const r = { dashboard:renderDashboard, 'finance-basics':renderFinanceBasics, 'trade-lifecycle':renderTradeLifecycle, 'market-knowledge':renderMarketKnowledge, behavioral:renderBehavioral, technical:renderTechnical, 'case-study':renderCaseStudy, glossary:renderGlossary, 'industry-news':renderIndustryNews, references:renderReferences };
     (r[section] || renderDashboard)(params);
     window.scrollTo(0, 0);
 }
@@ -800,16 +818,16 @@ function renderGlossary(){
         if (bd) card.appendChild(bd);
         const usageText = L(g, 'usage');
         if (usageText) card.appendChild(h('div', {style:'margin-top:8px;padding:8px 12px;background:var(--bg-input);border-radius:6px;font-size:.8rem;color:var(--text-muted);line-height:1.5'},
-            h('span', {style:'font-weight:600;color:var(--accent)'}, currentLang === 'ja' ? 'Usage: ' : 'Usage: '), usageText));
+            h('span', {style:'font-weight:600;color:var(--accent)'}, currentLang === 'ja' ? '使用場面: ' : 'Usage: '), usageText));
         content.appendChild(card);
     });
 }
 
 // --- Industry Topics (shown on dashboard) ---
 const industryTopics = [
-    {topic:'T+1 Settlement: One Year Later', topicJa:'T+1決済：移行から1年',
-     desc:'US equities moved to T+1 in May 2024. Same-day allocation and affirmation are now required, compressing Ops deadlines dramatically.',
-     descJa:'2024年5月に米国株式がT+1に移行。即日アロケーション・アファメーションが必須となり、Ops処理の時間的余裕が大幅に減少。',
+    {topic:'T+1 Settlement: The New Normal', topicJa:'T+1決済：新しい標準へ',
+     desc:'US equities moved to T+1 in May 2024. Same-day allocation and affirmation are now required. The industry is adapting as other regions plan to follow.',
+     descJa:'2024年5月に米国株式がT+1に移行。即日アロケーション・アファメーションが必須に。各地域も追随を計画する中、業界は適応が進む。',
      url:'https://www.dtcc.com/ust1'},
     {topic:'EU Plans T+1 by October 2027', topicJa:'EU、2027年10月にT+1移行へ',
      desc:'ESMA recommended the EU move to T+1 by October 2027. Until then, US T+1 vs EU T+2 mismatch creates cross-border FX funding challenges.',
@@ -901,6 +919,124 @@ function renderReferences() {
         });
         content.appendChild(card);
     });
+}
+
+// --- Industry News Data ---
+const industryNewsData = [
+    { category:'newsSettlement', articles:[
+        {title:'T+1: The Clock is Ticking for Global Adoption', titleJa:'T+1：世界的な導入へカウントダウン',
+         desc:'EU targets Oct 2027, UK consults on 2027 move, Switzerland and Asia-Pacific evaluating timelines. Cross-border FX funding remains the key challenge.', descJa:'EUは2027年10月を目標、英国も2027年移行を協議中、スイス・アジア太平洋もタイムライン検討中。クロスボーダーFX資金調達が最大の課題。',
+         url:'https://www.thetradenews.com/the-trade-predictions-series-2026-the-clock-is-ticking-for-t1/', date:'2026'},
+        {title:'Path to T+1: Accelerated Settlement for Asia-Based Firms', titleJa:'T+1への道：アジア拠点企業の決済短縮化',
+         desc:'Citi analysis of operational readiness challenges for Asia-based firms trading US equities under T+1.', descJa:'T+1下で米国株を取引するアジア拠点企業のオペレーション準備に関するCitiの分析。',
+         url:'https://www.citigroup.com/global/insights/path-t-1-accelerated-settlements-asia-based-firms', date:'2025'},
+        {title:'US Treasury Clearing Mandate Takes Shape', titleJa:'米国債の中央清算義務化が具体化',
+         desc:'SEC-mandated central clearing for broader Treasury transactions effective 2025-2026. Major Ops buildout required at every dealer bank.', descJa:'SEC命令による米国債取引の中央清算範囲拡大（2025-2026年施行）。全ディーラー銀行にOpsインフラ整備が必須。',
+         url:'https://www.dtcc.com/clearing-services/ficc-gov', date:'2025-2026'},
+    ]},
+    { category:'newsAI', articles:[
+        {title:'What to Expect from AI in 2026: Personal Agents, Mega Alliances', titleJa:'2026年のAI予測：パーソナルエージェント、メガアライアンス',
+         desc:'GS Research on AI trends: personal AI agents, industry alliances, and enterprise adoption accelerating across financial services.', descJa:'GS Research によるAIトレンド予測：パーソナルAIエージェント、業界アライアンス、金融サービスでの企業導入加速。',
+         url:'https://www.goldmansachs.com/insights/articles/what-to-expect-from-ai-in-2026-personal-agents-mega-alliances', date:'2026'},
+        {title:'Goldman Sachs x Anthropic Collaboration', titleJa:'ゴールドマン・サックス × Anthropic の提携',
+         desc:'GS collaborates with Anthropic on AI-powered tools for financial analysis and operations automation.', descJa:'GSがAnthropicと提携し、金融分析・オペレーション自動化のAIツール開発を推進。',
+         url:'https://www.goldmansachs.com/pressroom', date:'2026'},
+        {title:'AI Transforming Post-Trade Operations', titleJa:'AIがポストトレード業務を変革',
+         desc:'GenAI moving from experimentation to production: automated break resolution, NLP for confirmation matching, anomaly detection in reconciliations.', descJa:'生成AIが実験段階から本番運用へ：トレードブレークの自動解決、NLPによるコンファメーション照合、リコンサイル異常検知。',
+         url:'https://www.goldmansachs.com/intelligence/pages/gs-research/gen-ai-era-of-transformation/report.pdf', date:'2025'},
+    ]},
+    { category:'newsFirms', articles:[
+        {title:'GS Record 2024: ~$53.5B Revenue', titleJa:'GS 2024年過去最高収益：約535億ドル',
+         desc:'Goldman Sachs reported record net revenues with strong FICC and Equities performance. Higher volumes mean more settlements and reconciliations for Ops.', descJa:'ゴールドマン・サックスが過去最高の純収益を記録。FICCと株式が好調。取引量増加でOpsの決済・照合業務も増大。',
+         url:'https://www.goldmansachs.com/pressroom/press-releases/2025/pdfs/2024-q4-results.pdf', date:'2025'},
+        {title:'GS Completes Acquisition of Industry Ventures', titleJa:'GSがIndustry Venturesの買収を完了',
+         desc:'Goldman Sachs acquires Industry Ventures to expand its alternatives platform and private market capabilities.', descJa:'GSがIndustry Venturesを買収し、オルタナティブ投資プラットフォームとプライベート市場の能力を拡大。',
+         url:'https://www.goldmansachs.com/pressroom/press-releases/2026/goldman-sachs-completes-acquisition-of-industry-ventures', date:'2026'},
+        {title:'JPM Kinexys: ~$2B/day on Blockchain', titleJa:'JPM Kinexys：ブロックチェーンで1日約20億ドル',
+         desc:'JPMorgan\'s Kinexys (formerly Onyx) processes ~$2B daily. 24/7 programmable payments and tokenized collateral now production-ready.', descJa:'JPモルガンのKinexys（旧Onyx）はブロックチェーン上で1日約20億ドルを処理。24時間プログラマブル決済とトークン化担保が実用段階に。',
+         url:'https://www.jpmorgan.com/kinexys', date:'2025'},
+        {title:'Citi Fined $136M for Data Failures', titleJa:'Citi、データ管理不備で1.36億ドルの罰金',
+         desc:'Fed fined Citigroup $136M in 2024 for insufficient data quality and operational controls, following the $900M Revlon erroneous payment.', descJa:'FRBが2024年にCitiに1.36億ドルの罰金。データ品質と業務管理の不備。有名な9億ドルのRevlon誤送金事件が発端。',
+         url:'https://www.federalreserve.gov/newsevents/pressreleases/enforcement20240710a.htm', date:'2024'},
+    ]},
+    { category:'newsRegulation', articles:[
+        {title:'Basel III Endgame: Capital Impact', titleJa:'バーゼルIIIエンドゲーム：資本への影響',
+         desc:'Re-proposed US Basel III rules would increase capital requirements ~9%. Banks optimizing netting, collateral management, and central clearing.', descJa:'米国バーゼルIII再提案では資本要件が約9%増加見込み。銀行はネッティング、担保管理、中央清算の効率化で対応中。',
+         url:'https://www.federalreserve.gov/supervisionreg/basel/USimplementation.htm', date:'2025'},
+        {title:'ESMA Recommends EU T+1 by October 2027', titleJa:'ESMA、2027年10月までにEU T+1を勧告',
+         desc:'ESMA recommended EU move to T+1 settlement. US T+1 vs EU T+2 mismatch creates cross-border FX funding challenges until alignment.', descJa:'ESMAがEUのT+1移行を勧告。それまで米国T+1とEU T+2の不一致がクロスボーダーFX決済に課題を生む。',
+         url:'https://www.esma.europa.eu/press-news/esma-news/esma-recommends-eu-moves-t1-settlement-11-october-2027', date:'2025'},
+    ]},
+    { category:'newsJapan', articles:[
+        {title:'Goldman Sachs Japan: 2025 Economic Outlook', titleJa:'ゴールドマン・サックス：2025年日本経済見通し',
+         desc:'GS Japan macro outlook covering BOJ policy, wage growth, and Japan equities thesis.', descJa:'GS日本のマクロ経済見通し。日銀政策、賃金上昇、日本株の投資テーゼを解説。',
+         url:'https://www.goldmansachs.com/japan/insights/pages/2025-economic-outlook/japan-econ-outlook.pdf', date:'2025'},
+        {title:'GS x Anthropic: AI Collaboration (Newsweek Japan)', titleJa:'GS × Anthropic：AI提携（ニューズウィーク日本版）',
+         desc:'Japanese coverage of the Goldman Sachs and Anthropic AI partnership for financial technology innovation.', descJa:'ゴールドマン・サックスとAnthropicのAI提携に関する日本語報道。金融テクノロジーの革新を推進。',
+         url:'https://www.newsweekjapan.jp/stories/business/2026/02/586994.php', date:'2026'},
+        {title:'Nikkei: Financial Markets (Latest)', titleJa:'日経新聞：マーケット（最新）',
+         desc:'Japan\'s premier financial news: equities, bonds, FX, derivatives markets.', descJa:'日本を代表する経済紙のマーケットニュース。株式、債券、為替、デリバティブ。',
+         url:'https://www.nikkei.com/markets/', date:''},
+        {title:'BOJ Payment & Settlement Systems', titleJa:'日本銀行：決済制度の概要',
+         desc:'BOJ-NET and Japan\'s RTGS settlement infrastructure overview.', descJa:'BOJ-NETと日本のRTGS決済インフラの公式解説。',
+         url:'https://www.boj.or.jp/paym/outline/index.htm', date:''},
+    ]},
+];
+
+const communityResources = [
+    {title:'Glassdoor: GS Operations Interview', titleJa:'Glassdoor：GS オペレーション面接',
+     desc:'Real interview questions and experiences from GS Operations candidates.', descJa:'GSオペレーション候補者の実際の面接質問と体験談。',
+     url:'https://www.glassdoor.com/Interview/Goldman-Sachs-Operations-Interview-Questions-EI_IE2800.0,13_KO14,24.htm'},
+    {title:'Reddit: r/FinancialCareers', titleJa:'Reddit: r/FinancialCareers',
+     desc:'Active community discussing Operations roles, interview prep, and career paths in finance.', descJa:'Ops職種、面接対策、金融キャリアパスを議論する活発なコミュニティ。',
+     url:'https://www.reddit.com/r/FinancialCareers/'},
+    {title:'Wall Street Oasis: Operations Forum', titleJa:'Wall Street Oasis: Operations Forum',
+     desc:'Forums with salary data, interview reports, and career advice for Ops roles.', descJa:'Ops職の給与データ、面接レポート、キャリアアドバイスのフォーラム。',
+     url:'https://www.wallstreetoasis.com/forum/operations'},
+    {title:'Gaishishukatsu: Interview Reports', titleJa:'外資就活：面接対策',
+     desc:'Interview experience reports for GS, MS, JPM and other foreign banks in Japan.', descJa:'GS・MS・JPM等の外資金融の面接体験記・選考情報（日本語）。',
+     url:'https://gaishishukatsu.com/'},
+    {title:'Gaishishukatsu: Selection Guide', titleJa:'外資就活：選考ガイド',
+     desc:'Step-by-step selection process guides for foreign financial firms.', descJa:'外資金融の選考フロー・対策を詳しく解説。',
+     url:'https://gaishishukatsu.com/archives/110378'},
+    {title:'Unistyle: Past Interview Questions', titleJa:'Unistyle: 面接過去問まとめ',
+     desc:'Collected past interview questions from finance firms, organized by company.', descJa:'企業別に整理された金融機関の面接過去問集。',
+     url:'https://unistyleinc.com/columns/304'},
+    {title:'ONE CAREER: Finance Industry', titleJa:'ONE CAREER: 金融業界',
+     desc:'Japanese career platform with company reviews, interview reports, and ES examples.', descJa:'企業クチコミ、面接体験談、ES例文を掲載する日本のキャリアプラットフォーム。',
+     url:'https://www.onecareer.jp/'},
+];
+
+function renderIndustryNews(){
+    content.innerHTML = '';
+    content.appendChild(h('div', {className:'page-header'}, h('h2', null, t('industryNews')), h('p', null, t('industryNewsDesc'))));
+
+    industryNewsData.forEach(section => {
+        const card = h('div', {className:'card'}, h('h3', {className:'card-title', style:'margin-bottom:14px'}, t(section.category)));
+        section.articles.forEach(a => {
+            const title = L(a, 'title');
+            const desc = L(a, 'desc');
+            const dateTag = a.date ? h('span', {style:'font-size:.7rem;color:var(--text-muted);margin-left:8px;background:var(--bg-input);padding:2px 6px;border-radius:4px'}, a.date) : null;
+            const link = h('a', {href:a.url, target:'_blank', rel:'noopener noreferrer', style:'color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem'}, title);
+            card.appendChild(h('div', {style:'margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bg-input)'},
+                h('div', {style:'display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:4px'}, link, dateTag),
+                h('p', {style:'color:var(--text-muted);font-size:.82rem;line-height:1.6;margin:0'}, desc)));
+        });
+        content.appendChild(card);
+    });
+
+    // Community Resources
+    const comCard = h('div', {className:'card', style:'margin-top:24px'},
+        h('h3', {className:'card-title', style:'margin-bottom:6px'}, t('communityTitle')),
+        h('p', {style:'color:var(--text-muted);font-size:.85rem;margin-bottom:14px'}, t('communityDesc')));
+    communityResources.forEach(r => {
+        const title = L(r, 'title');
+        const desc = L(r, 'desc');
+        const link = h('a', {href:r.url, target:'_blank', rel:'noopener noreferrer', style:'color:var(--accent);text-decoration:none;font-weight:600;font-size:.9rem'}, title);
+        comCard.appendChild(h('div', {style:'margin-bottom:12px'}, link,
+            h('p', {style:'color:var(--text-muted);font-size:.82rem;margin-top:2px;line-height:1.6'}, desc)));
+    });
+    content.appendChild(comCard);
 }
 
 // --- Init ---
